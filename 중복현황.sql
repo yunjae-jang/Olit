@@ -18,20 +18,17 @@ use test_db;
 ####### 재방문주기 check ##############
 #select customer_key, count(customer_key) as 재방문횟수, avg(re_login) as 평균재방문주기 from customer_test where re_login <> '0' group by customer_key;
 
-##### 전날 주문 DB check > 심플 주문 : 197373 #########
+##### 전날 주문 DB check > 심플 주문 : 195232 #########
 select * from orders;
 select max(orderdate)
 from orders;
 select min(orderdate)
 from orders;
-
-##### 삭제할 데이터 검색 (날짜 변경) ####### 110996
-select * from orders where date(orderdate) between '2022-10-23' and '2023-10-23';
-select * from orders_co where date(orderdate) between '2022-09-22' and '2023-09-22';
+ 
+##### 삭제할 데이터 검색 (날짜 변경) ####### 110661
+select * from orders where date(orderdate) between '2022-10-10' and '2023-10-10';
 ##### 삭제할 데이터 삭제 (날짜 변경) ####### 
-#delete from orders where date(orderdate) between '2022-10-26' and '2023-10-26';
-#delete from orders_co where date(orderdate) between '2022-10-26' and '2023-10-26';
-#delete from orders_sl where date(orderdate) between '2022-10-26' and '2023-10-26';
+#delete from orders where date(orderdate) between '2022-10-10' and '2023-10-10';
 set global max_allowed_packet=671088640;
 
 #### 2019-01-01부터가 아닌 1년 단위로 데이터 업데이트! > 따라서 매일 1년 단위로 데이터를 삭제 시킨 후 1년 단위로 신규 데이터를 다운받아 업데이트 필요 #######

@@ -3,7 +3,6 @@ use customer_imweb_ex;
 #select * from customer_test;
 select * from orders;
 
-
 /***************재구매율 및 구매주기 분석용 데이터 마트***************/
 ### 테이블 삭제 ###
 drop table RE_PUR_CYCLE;

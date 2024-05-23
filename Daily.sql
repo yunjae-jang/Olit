@@ -4,14 +4,17 @@ set global max_allowed_packet=671088640;
 show databases;
 use customer_imweb_ex;
 
+SELECT * FROM sabang_api;
+SELECT * FROM orders;
+
 ###################################### 전일자 재방문수############################################
-select count(*) from customer where date(join_date) between '2019-01-01' and '2023-10-24' and date(recent_login) = '2023-10-25';
+select count(*) from customer_sl where date(join_date) between '2019-01-01' and '2023-09-05' and date(recent_login) = '2023-09-06';
 
 ###################################### 금,토,일 재방문수############################################
-select count(*) from customer_sl where date(join_date) between '2019-01-01' and '2023-09-30' and date(recent_login) = '2023-10-01';
-select count(*) from customer_sl where date(join_date) between '2019-01-01' and '2023-10-01' and date(recent_login) = '2023-10-02';
-select count(*) from customer_sl where date(join_date) between '2019-01-01' and '2023-10-02' and date(recent_login) = '2023-10-03';
-
+select count(*) from customer_sl where date(join_date) between '2019-01-01' and '2023-10-05' and date(recent_login) = '2023-10-06';
+select count(*) from customer_sl where date(join_date) between '2019-01-01' and '2023-10-06' and date(recent_login) = '2023-10-07';
+select count(*) from customer_sl where date(join_date) between '2019-01-01' and '2023-10-07' and date(recent_login) = '2023-10-08'; 
+select count(*) from customer_sl where date(join_date) between '2019-01-01' and '2023-10-08' and date(recent_login) = '2023-10-09'; 
 ########################일자별 주문자수,회원주문자수, 주문건수, 매출 #####################
 select date(orderdate), count(distinct(customerphone)) as '주문자수',count(distinct(customer_key)) as '회원주문자수',count(distinct(itemordernum)) as '주문건수', sum(total_price) as '매출' from 
 orders_sl
@@ -38,7 +41,8 @@ select date(orderdate) as orderdate, count(*) from (select date(orderdate) as or
     
 ##################일자별 주문품목수###############
 select date(orderdate), count(*) as '주문품목수' from 
-orders_sl where date(orderdate) between '2022-11-01' and DATE_SUB(NOW(), INTERVAL 1 DAY) and orderstatus not in ('입금대기')group by date(orderdate)
+orders_sl
+ where date(orderdate) between '2022-11-01' and DATE_SUB(NOW(), INTERVAL 1 DAY) and orderstatus not in ('입금대기')group by date(orderdate)
 order by 1 asc;
 
 ####################일자별 취소, 취소금액##################
@@ -57,7 +61,7 @@ select * from product_option_sub;
 #################### 상품&옵션별 판매량_기존 #####################
 select date(orderdate), productname, option_info, count(*), sum(product_price) from orders_sl
  where date(orderdate)
-between '2020-01-01' and '2023-08-10' and orderstatus not in ('입금대기')
+between '2020-01-01' and '2023-08-10'
 group by 1,2,3 order by 1 asc,5 desc;
 
 
@@ -65,7 +69,7 @@ group by 1,2,3 order by 1 asc,5 desc;
 select max(join_date)
 from customer_sl;
 select max(orderdate)
-from orders_co;
+from orders;
 select max(canceldate)
 from orders_sl_cl;
 
