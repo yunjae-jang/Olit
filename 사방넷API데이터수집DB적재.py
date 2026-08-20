@@ -81,15 +81,15 @@ def get_file_path():
 
 def connectDB(db_use):
     mydb = mysql.connector.connect(
-        host="192.168.0.184",
-        user="manager",
-        passwd="Olitcrm!!",
-        database=db_use,
-        auth_plugin="mysql_native_password"
+        host="",
+        user="",
+        passwd="",
+        database=,
+        auth_plugin=""
     )
     mycursor = mydb.cursor()
     return mydb,mycursor
-mydb,mycursor = connectDB("Customer_Imweb_Ex")
+mydb,mycursor = connectDB("")
 
 # df = pd.read_excel('C:/Users/장윤재/Desktop/파이썬/olitretail_orders.xlsx')
 # df2 = pd.read_excel('C:/Users/장윤재/Desktop/파이썬/olit_orders.xlsx')
