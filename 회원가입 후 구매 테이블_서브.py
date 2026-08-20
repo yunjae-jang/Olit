@@ -16,16 +16,16 @@ from tkinter import filedialog
 ################# 반드시 코드 실행 하루 전까지의 고객 및 주문 데이터를 업데이트 한 후에 실행
 def connectDB(db_use):
     mydb = mysql.connector.connect(
-        host="192.168.0.184",
-        user="manager",
-        passwd="Olitcrm!!",
-        database=db_use,
-        auth_plugin="mysql_native_password"
+        host="",
+        user="",
+        passwd="",
+        database=,
+        auth_plugin=""
     )
     mycursor = mydb.cursor()
     return mydb,mycursor
 
-mydb,mycursor = connectDB("Customer_Imweb_Ex")
+mydb,mycursor = connectDB("")
 
 def see_results():
     result = mycursor.fetchall()
