@@ -4,10 +4,10 @@ from gspread_dataframe import set_with_dataframe
 from oauth2client.service_account import ServiceAccountCredentials
 from sqlalchemy import create_engine
 
-user = 'manager'
-password = 'Olitcrm!!'
-host =  '192.168.0.184'
-database ='customer_imweb_ex'
+user = ''
+password = ''
+host =  ''
+database =''
 
 engine = create_engine(f"mysql+mysqlconnector://{user}:{password}@{host}/{database}")
 
