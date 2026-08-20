@@ -13,12 +13,12 @@ from tkinter import filedialog
 
 def connectDB(db_use):
     mydb = mysql.connector.connect(
-        host="192.168.0.184",
-        user="manager",
-        passwd="Olitcrm!!",
-        database=db_use,
-        auth_plugin="mysql_native_password",
-        collation='utf8mb4_0900_ai_ci'
+        host="",
+        user="",
+        passwd="",
+        database=,
+        auth_plugin="",
+        collation=''
     )
     mycursor = mydb.cursor()
     return mydb,mycursor
