@@ -8,16 +8,16 @@ from datetime import datetime
 
 def connectDB(db_use):
     mydb = mysql.connector.connect(
-        host="192.168.0.184",
-        user="manager",
-        passwd="Olitcrm!!",
-        database=db_use,
-        auth_plugin="mysql_native_password"
+        host="",
+        user="",
+        passwd="",
+        database=,
+        auth_plugin=""
     )
     mycursor = mydb.cursor()
     return mydb,mycursor
 
-mydb, mycursor = connectDB("Customer_Imweb_Ex")
+mydb, mycursor = connectDB("")
 
 ############### 1년 단위로 업데이트 
 day = date.today()
