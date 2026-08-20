@@ -26,11 +26,11 @@ from tkinter import filedialog
 
 def connectDB(db_use):
     mydb = mysql.connector.connect(
-        host="192.168.0.184",
-        user="manager",
-        passwd="Olitcrm!!",
-        database=db_use,
-        auth_plugin="mysql_native_password"
+        host="",
+        user="",
+        passwd="",
+        database=,
+        auth_plugin=""
     )
     mycursor = mydb.cursor()
     return mydb,mycursor
@@ -45,17 +45,17 @@ def selectAll(tb1, db_use):
 
 def connectnewDB(newdb_use):
     newdb = mysql.connector.connect(
-        host="192.168.0.184",
-        user="manager",
-        passwd="Olitcrm!!",
-        database=newdb_use,
-        auth_plugin="mysql_native_password"
+        host="",
+        user="",
+        passwd="",
+        database=,
+        auth_plugin=""
     )
     newmycursor = newdb.cursor()
     return newdb,newmycursor
 
 mydb,mycursor = connectDB("Customer_Imweb_Ex")
-newdb,newmycursor = connectnewDB("Customer_Imweb_Ex")
+newdb,newmycursor = connectnewDB("")
 
 ## 기존 테이블 내 데이터를 삭제함
 mycursor.execute(f"DELETE FROM refirst_update ")
